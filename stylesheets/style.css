@@ -1,3 +1,14 @@
+html
+{
+ position: relative;
+ min-height: 100%;
+}
+
+body
+{
+ margin-bottom: 4em;
+}
+
 #header
 {
  text-align: center;
@@ -54,4 +65,15 @@ a:hover
  padding: 1em;
  margin-top: 1em;
  border-radius: 1.5em;
+}
+
+#footer
+{
+ text-align: center;
+ position: absolute;
+ bottom:0;
+ width:100%;
+ height: 4em;
+ background-color: #155a32;
+ color: #fff;
 }
