@@ -5,7 +5,7 @@
  color: #fff;
 }
 
-.container-fluid
+#main
 {
  margin-left: 1em;
  margin-right:1em;
@@ -21,9 +21,33 @@ a:hover
  color: #1d7442;
 }
 
+.toggle-bar
+{
+ background-color: #155a32;
+ color: #fff;
+ padding: 10px;
+ cursor: pointer;
+}
+
+.toggle-bar p
+{
+ display: inline;
+ font-weight: bold;
+ margin-left: 0.5em;
+}
+
 .project-image
 {
  width: 100%;
  height: auto;
 }
 
+#programming-language-row
+{
+ display: none;
+}
+
+#projects-row
+{
+ display: none;
+}

@@ -23,5 +23,9 @@ window.onload = function()
      }
     }
    });
+   
+   // JQuery slide toggle click events
+   $("#programming-language-toggle").click(toggleProgrammingLanguages);
+   $("#projects-toggle").click(toggleProjects);
 }
 
