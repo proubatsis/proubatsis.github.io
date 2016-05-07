@@ -6,7 +6,8 @@ html
 
 body
 {
- margin-bottom: 4em;
+ margin-bottom: 60px;
+ font-size: 14px;
 }
 
 #header
@@ -44,12 +45,18 @@ a:hover
 {
  display: inline;
  font-weight: bold;
- margin-left: 0.5em;
+ margin-left: 1em;
+ font-size: 1em;
 }
 
 .sub-toggle-bar
 {
  background-color: #23894e;
+}
+
+.sub-toggle-bar i
+{
+ margin-left: 1em;
 }
 
 .project-image
@@ -73,7 +80,8 @@ a:hover
  position: absolute;
  bottom:0;
  width:100%;
- height: 4em;
+ height: 60px;
  background-color: #155a32;
  color: #fff;
+ padding-top: 5px;
 }
