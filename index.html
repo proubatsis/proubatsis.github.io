@@ -1,0 +1,254 @@
+<html>
+ <head>
+  <!--JQuery-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  
+  <!--Bootstrap-->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" />
+  
+  <!--Chart JS-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
+ </head>
+
+ <body>
+  <div class="jumbotron" style="text-align: center;">
+   <h1> Panagiotis Roubatsis </h1>
+   <ul class="list-inline">
+    <li><a href="mailto:proubatsis@panagiotis.ca"><i class="fa fa-envelope fa-2x"></i></a></li>
+    <li></li>
+    <li><a href="http://www.github.com/proubatsis"><i class="fa fa-github fa-2x"></i></a></li>
+    <li></li>
+    <li><a href="http://www.linkedin.com/in/panagiotisroubatsis"><i class="fa fa-linkedin fa-2x"></i></a></li>
+   </ul>
+  </div>
+ </body>
+ 
+ <div class="container-fluid">
+  <!--About Me-->
+  <div class="row">
+   <h2>About Me</h2>
+  </div>
+  <div class="row">
+   <p>
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+
+Vestibulum lobortis lectus et augue malesuada mollis. Morbi at urna dapibus, semper elit sed, fermentum risus. Integer vitae eleifend ipsum, ac fermentum quam. Nunc gravida odio ac metus pharetra imperdiet. Integer odio est, ornare at sagittis sit amet, efficitur vel justo. Maecenas fermentum magna eget leo imperdiet tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porttitor urna augue, ut congue massa eleifend nec. Integer vitae tortor scelerisque, mattis felis rutrum, hendrerit purus. Phasellus hendrerit placerat massa et maximus. 
+   </p>
+  </div>
+  
+  <!--Programming Languages-->
+  <div class="row">
+   <h2>Programming Languages</h2>
+  </div>
+  
+  <div class="row">
+   <div class="col-md-6">
+    <canvas id="programmingChartCanvas">
+     Canvas not supported!
+    </canvas>
+   </div>
+   <div class="col-md-6"></div>
+  </div>
+  
+  <script type="text/javascript">
+   var canvas = document.getElementById("programmingChartCanvas");
+   var chart = new Chart(canvas, {
+    type: "bar",
+    data: {
+     labels: ["C++", "Java", "Python", "C#", "JavaScript", "HTML/CSS", "F#", "Assembly"],
+     datasets: [{
+      label: "Proficiency %",
+      backgroundColor: "rgba(39, 174, 96, 0.8)",
+      data: [90, 85, 82, 75, 65, 60, 50, 25]
+     }]
+    },
+    options: {
+     scales: {
+      yAxes: [{
+       ticks: {
+        beginAtZero: true,
+        max: 100
+        }
+      }]
+     }
+    }
+   });
+  </script>
+  
+  
+  <!--Projects-->
+  <div class="row">
+   <h2>Projects</h2>
+  </div>
+  
+  <!--Android Applications-->
+  <div class="row">
+   <h2>Android Applications</h2>
+  </div>
+  
+  <!--Android Games-->
+  <div class="row">
+  
+   <div class="col-md-6">
+    <h3>The Space Maze</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+   <div class="col-md-6">
+    <h3>Coin Collector</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+  </div>
+  
+  <!--Android Math-->
+  <div class="row">
+  
+   <div class="col-md-6">
+    <h3>Derivative Calculator</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+   <div class="col-md-6">
+    <h3>Polynomial Solver</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+  </div>
+  
+  <!--Arduino-->
+  <div class="row">
+   <h2>Arduino</h2>
+  </div>
+  
+  <div class="row">
+  
+   <div class="col-md-6">
+    <h3>LED Cube Designer</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+   <div class="col-md-6">
+    <h3>NeoPixel LED Strip Message Board</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+  </div>
+   
+   <!--Web-->
+   <div class="row">
+   <h2>Web</h2>
+  </div>
+  
+  <div class="row">
+  
+   <div class="col-md-6">
+    <h3>PanPar Development</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+   <div class="col-md-6">
+    <h3>Map Creator / Route Finder</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+  </div>
+  
+  <!--Desktop-->
+   <div class="row">
+   <h2>Desktop</h2>
+  </div>
+  
+  <div class="row">
+  
+   <div class="col-md-6">
+    <h3>Procedural city</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+   <div class="col-md-6">
+    <h3>Audio Visualizer</h3>
+    <div class="row">
+     <div class="col-md-6">
+      <img style="width:75%; height:25%;" class="img-rounded" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
+     </div>
+     <div class="col-md-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nunc eget ornare sollicitudin. Donec dapibus, lorem vitae sodales pulvinar, nulla arcu tempor eros, efficitur rutrum libero sapien vel sapien. Nulla rhoncus ante quis consectetur consequat. Fusce facilisis volutpat interdum. Ut pellentesque turpis mauris, at tincidunt leo dictum at. Suspendisse gravida odio sollicitudin lacinia feugiat. Vestibulum id diam tempor, commodo ligula venenatis, blandit mauris. Sed cursus ultrices dolor, ac facilisis lectus viverra non. Suspendisse ac velit diam. Aenean vel orci eros. Morbi consequat pretium viverra. Aliquam lorem libero, sodales eu ultrices placerat, commodo et diam. Fusce et suscipit mauris. Maecenas scelerisque libero ac quam iaculis viverra.
+     </div>
+    </div>
+   </div>
+   
+  </div>
+  
+  <!--End of Projects Section-->
+  
+ </div>
+</html>
+
