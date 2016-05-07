@@ -1,6 +1,24 @@
 #header
 {
  text-align: center;
+ background-color: #155a32;
+ color: #fff;
+}
+
+.container-fluid
+{
+ margin-left: 1em;
+ margin-right:1em;
+}
+
+a
+{
+ color: #27AE60;
+}
+
+a:hover
+{
+ color: #1d7442;
 }
 
 .project-image
