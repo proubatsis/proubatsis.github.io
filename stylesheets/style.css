@@ -47,3 +47,11 @@ a:hover
  height: auto;
 }
 
+#my-photo
+{
+ width: 100%;
+ height: auto;
+ padding: 1em;
+ margin-top: 1em;
+ border-radius: 1.5em;
+}
