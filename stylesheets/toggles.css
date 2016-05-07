@@ -1,0 +1,15 @@
+#programming-language-row
+{
+ display: none;
+}
+
+#projects-row
+{
+ display: none;
+}
+
+#projects-android-container, #projects-arduino-row, #projects-web-row, #projects-desktop-row
+{
+ display: none;
+}
+

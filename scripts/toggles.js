@@ -42,3 +42,30 @@ function toggleProjects()
  toggleItem("projects-toggle", "projects-row");
 }
 
+// ==================================================
+// Projects Sub-Toggles
+// ==================================================
+
+/** Slide toggle android applications (Projects sub-toggle) */
+function toggleAndroid()
+{
+ toggleItem("projects-android-toggle", "projects-android-container");
+}
+
+/** Slide toggle ardunio projects (Projects sub-toggle) */
+function toggleArduino()
+{
+ toggleItem("projects-arduino-toggle", "projects-arduino-row");
+}
+
+/** Slide toggle ardunio projects (Projects sub-toggle) */
+function toggleWeb()
+{
+ toggleItem("projects-web-toggle", "projects-web-row");
+}
+
+/** Slide toggle ardunio projects (Projects sub-toggle) */
+function toggleDesktop()
+{
+ toggleItem("projects-desktop-toggle", "projects-desktop-row");
+}

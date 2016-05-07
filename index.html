@@ -15,6 +15,7 @@
   
   <!--Stylesheets-->
   <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="stylesheets/toggles.css" />
   
   <!--Scripts-->
   <script type="text/javascript" src="scripts/toggles.js"></script>
@@ -53,7 +54,6 @@
    </div>
    
    <div id="programming-language-row" class="row">
-    <h2>Programming Languages</h2>
     <div class="col-md-6">
      <canvas id="programmingChartCanvas">
       Canvas not supported!
@@ -69,14 +69,14 @@
    </div>
    
    <div id="projects-row" class="row">
-    <h2>Projects</h2>
+    
+    <div id="projects-android-toggle" class="toggle-bar sub-toggle-bar">
+     <i class="fa fa-plus-square"></i>
+     <p>Android Applications</p>
+    </div>
     
     <!--Android Applications-->
-    <div class="container-fluid">
-    
-     <div class="row">
-      <h2>Android Applications</h2>
-     </div>
+    <div id="projects-android-container" class="container-fluid">
      
      <!--Android Games-->
      <div class="row">
@@ -139,11 +139,13 @@
     </div>
     
     <!--Arduino-->
-    <div class="row">
-     <h2>Arduino</h2>
+    
+    <div id="projects-arduino-toggle" class="toggle-bar sub-toggle-bar">
+     <i class="fa fa-plus-square"></i>
+     <p>Arduino</p>
     </div>
     
-    <div class="row">
+    <div id="projects-arduino-row" class="row">
     
      <div class="col-md-6">
       <h3>LED Cube Designer</h3>
@@ -171,12 +173,13 @@
      
     </div>
      
-     <!--Web-->
-     <div class="row">
-     <h2>Web</h2>
+    <!--Web-->
+    <div id="projects-web-toggle" class="toggle-bar sub-toggle-bar">
+     <i class="fa fa-plus-square"></i>
+     <p>Web</p>
     </div>
     
-    <div class="row">
+    <div id="projects-web-row" class="row">
     
      <div class="col-md-6">
       <h3>PanPar Development</h3>
@@ -205,11 +208,12 @@
     </div>
     
     <!--Desktop-->
-    <div class="row">
-     <h2>Desktop</h2>
+    <div id="projects-desktop-toggle" class="toggle-bar sub-toggle-bar">
+     <i class="fa fa-plus-square"></i>
+     <p>Desktop</p>
     </div>
     
-    <div class="row">
+    <div id="projects-desktop-row" class="row">
     
      <div class="col-md-6">
       <h3>Procedural city</h3>

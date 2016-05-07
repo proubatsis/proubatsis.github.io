@@ -27,5 +27,11 @@ window.onload = function()
    // JQuery slide toggle click events
    $("#programming-language-toggle").click(toggleProgrammingLanguages);
    $("#projects-toggle").click(toggleProjects);
+   
+   // Projects sub-toggles
+   $("#projects-android-toggle").click(toggleAndroid);
+   $("#projects-arduino-toggle").click(toggleArduino);
+   $("#projects-web-toggle").click(toggleWeb);
+   $("#projects-desktop-toggle").click(toggleDesktop);
 }
 

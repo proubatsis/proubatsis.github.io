@@ -36,18 +36,14 @@ a:hover
  margin-left: 0.5em;
 }
 
+.sub-toggle-bar
+{
+ background-color: #23894e;
+}
+
 .project-image
 {
  width: 100%;
  height: auto;
 }
 
-#programming-language-row
-{
- display: none;
-}
-
-#projects-row
-{
- display: none;
-}
