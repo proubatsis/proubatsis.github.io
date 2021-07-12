@@ -1,360 +1,238 @@
 <html>
- <head>
-  <!--JQuery-->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  
-  <!--Bootstrap-->
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  
-  <!--Font Awesome-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" />
-  
-  <!--Chart JS-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.min.js"></script>
-  
-  <!--Stylesheets-->
-  <link rel="stylesheet" href="stylesheets/style.css" />
-  <link rel="stylesheet" href="stylesheets/toggles.css" />
-  
-  <!--Scripts-->
-  <script type="text/javascript" src="scripts/toggles.js"></script>
-  <script type="text/javascript" src="scripts/onload.js"></script>
- </head>
+    <head>
+        <title>Panagiotis Roubatsis</title>
+        <link rel="stylesheet" type="text/css" href="fontawesome-free-5.15.3-web/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: 'Bona Nova', serif;
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                margin: 0px;
+                font-size: 12px;
+            }
+            body[contact] {
+                position: absolute;
+                height: 200vh;
+                overflow-x: hidden;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                background: #d41425;
+                width: 100%;
+                height: 100%;
+                clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+            }
+            #homePage {
+                background: #d41425;
+            }
+            #contactPage {
+                display: none;
+                background: #13c297;
+            }
+            #contactBackgroundSvg {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+            }
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 450px;
+                position: absolute;
+                top: 192px;
+                left: 16px;
+            }
+            .contact-form textarea {
+                height: 128px;
+                border: 1px solid #13c297;
+            }
+            .contact-form input {
+                height: 32px;
+                border: 1px solid #13c297;
+            }
+            .contact-form button {
+                height: 48px;
+                background: #13c297;
+                border: none;
+                color: #fff;
+                font-weight: bold;
+            }
+            .content.change-content-init {
+                clip-path: polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%);
+            }
+            .content.change-content-1 {
+                transition: 500ms;
+                clip-path: polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%);
+            }
+            .content.change-content-2 {
+                transition: 500ms;
+                clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+            }
+            .info {
+                margin: 8px;
+                color: #fdfdfd;
+                align-self: center;
+            }
+            h1 {
+                font-size: 4em;
+            }
+            h2 {
+                font-size: 3em;
+            }
+            .links {
+                font-size: 2em;
+            }
+            .links * {
+                margin-right: 16px;
+                color: #fdfdfd;
+                cursor: pointer;
+            }
 
- <body>
-  <div id="header" class="jumbotron">
-   <h1> Panagiotis Roubatsis </h1>
-   <ul class="list-inline">
-    <li><a href="mailto:proubatsis@panagiotis.ca"><i class="fa fa-envelope fa-2x"></i></a></li>
-    <li></li>
-    <li><a href="http://www.github.com/proubatsis"><i class="fa fa-github fa-2x"></i></a></li>
-    <li></li>
-    <li><a href="http://www.linkedin.com/in/panagiotisroubatsis"><i class="fa fa-linkedin fa-2x"></i></a></li>
-   </ul>
-  </div>
- 
-  <div id="main" class="container-fluid">
-   <!--About Me-->
-   <div class="row">
-    <div class="col-md-3">
-     <img id="my-photo" src="images/photo.png" />
-    </div>
-    
-    <div class="col-md-6">
-     <h2>About Me</h2>
-      <p>
-       I am an undergraduate computer science student at the University of Toronto. I have had an interest in software development from a young age. It has grown into a real pastime for me and I joined several related clubs in high school (Arduino, Super Computing, and Robotics). As a result I have published four android applications and I have also worked on several other projects in my spare time. Some of these android applications and projects can be seen below in the "Projects" section.
-       <br /> <br />
-       I believe that most things can be done if you dedicate the time to it. Contrary to popular opinion, most people are not born "gifted". They have to dedicate hours upon hours practicing to get to where they are. I think that this is the case for most things. For example, think about university. You can pass your courses by putting in a minimal amount of time and effort, but to really excel, you need to dedicate as much time as you can to a course. The people managing to get 90% and above generally aren't geniuses, they either dedicate the time to learning the material and practicing what they learned or they've done so in the past. The best way to dedicate the time needed to completing an assignment is to be genuinely excited to work on it. That is how you produce the best quality of work.
-      </p>
-    </div>
-    
-    <div class="col-md-2"></div>
-   </div>
-   
-   <!--Projects-->
-   <div id="projects-toggle" class="row toggle-bar">
-    <i class="fa fa-plus-square"></i>
-    <p>Projects</p>
-   </div>
-   
-   <div id="projects-row" class="row">
-    
-    <div id="projects-android-toggle" class="toggle-bar sub-toggle-bar">
-     <i class="fa fa-plus-square"></i>
-     <p>Android Applications</p>
-    </div>
-    
-    <!--Android Applications-->
-    <div id="projects-android-container" class="container-fluid">
-     
-     <!--Android Games-->
-     <div class="row">
-     
-      <div class="col-md-6">
-       <h3>The Space Maze</h3>
-       <p class="project-caption">Java, <a href="https://libgdx.badlogicgames.com/">LibGDX</a>, <a href="http://box2d.org/about/">Box2D</a></p>
-       <div class="row">
-        <div class="col-md-6">
-         <a href="https://play.google.com/store/apps/details?id=com.panpardev.spacemaze.android">
-          <img class="img-rounded project-image" src="images/space_maze.png" />
-         </a>
+            @media only screen and (min-width: 768px) {
+                .contact-form {
+                    height: 540px;
+                }
+                h1 {
+                    font-size: 8em;
+                }
+                h2 {
+                    font-size: 4em;
+                }
+            }
+
+            @media only screen and (min-width: 1160px) {
+                body[contact] {
+                    position: fixed;
+                    height: 100vh;
+                }
+                .contact-form {
+                    position: absolute;
+                    left: unset;
+                    top: 128px;
+                    right: 600px;
+                }
+                .info {
+                    margin: 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="homePage" class="content">
+            <svg
+               width="979.29785"
+               height="382.68039">
+              <path
+                 id="homeBackgroundSvg"
+                 d="M 979.29786,0.01882018 0,0 0.02164838,382.68039 28.333929,379.96246 l 68.690372,-35.35535 21.213209,-40.4061 13.13198,-13.13199 45.45687,-35.35534 48.48732,-62.62945 32.32488,-36.3655 44.44671,-15.15228 214.15235,-86.873124 327.2894,4.040609 z"
+                 style="display:inline;fill:#fdfdfd;fill-opacity:1;stroke-width:3.77952766" />
+            </svg>
+            <div class="info">
+                <h1>Panagiotis Roubatsis</h1>
+                <h2>Software Developer</h2>
+                <div class="links">
+                    <a target="_blank" href="http://www.github.com/proubatsis"><i class="fab fa-github"></i></a>
+                    <a target="_blank" href="http://www.linkedin.com/in/panagiotisroubatsis"><i class="fab fa-linkedin"></i></a>
+                    <span id="contactButton"><i class="fas fa-envelope"></i></span>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-         <p>
-          <b>Description</b> <br/>
-          The Space Maze is a game where you control a blue spaceship and you must navigate your way to the end of a maze. There is an enemy (red) space ship that will try to get to the end before you. The maze is randomly generated each time you play so that you have a different experience each time.
-          <br/> <br/>
-          <b>Technical</b> <br/>
-          The space maze uses LibGDX as its framework for rendering graphics, and it uses Box2D for movement and collision. The maze is generated using an algorithm similar to the Recursive Backtracker found on <a href="http://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking">Jamis Buck's blog.</a> The star texture used on the skydome is generated by distributing clusters of stars over a background generated using a custom implementation of Perlin Noise.
-         </p>
+        <div id="contactPage" class="content">
+            <svg
+               version="1.1"
+                id="contactBackgroundSvg"
+               width="1422.2948"
+               height="1087.0504">
+              <path
+                 id="path1423"
+                 d="m 1422.2947,800.16709 -143.4415,10.1015 28.2843,121.21834 111.1167,101.01527 1.5673,48.773 -100.5622,3.7549 -12.1218,-62.6294 -143.4417,-210.1118 -56.5685,26.26398 -48.4874,147.48227 -248.49755,56.56855 -44.44668,42.4264 -44.44672,-20.203 -34.34521,22.2233 -246.4772,-4.0406 28.28424,-48.4873 -274.76149,-143.44167 -26.26397,-44.44672 12.12185,-22.22336 8.08124,-76.77161 46.46698,-32.32487 H 155.5635 l -30.30455,-147.48226 66.67003,-72.731 8.08124,-30.30456 60.60915,-50.50764 -20.20305,-119.198 -92.93405,12.12183 L 40.406098,402.167 0,363.78118 30.304592,291.0502 153.5432,216.29891 163.64474,84.979084 117.17771,89.019694 151.52289,24.36993 244.45693,0.1262691 757.09535,0.90926488 814.18296,95.080609 807.6801,0 l 503.498,0.1262691 -82.8325,52.5279329 -2.0203,92.934028 12.1218,56.56855 42.4263,-26.26397 -2.0202,-48.48732 -28.2844,-36.365491 -10.1015,-32.324882 30.3046,-8.08122 133.3401,117.177693 -68.6903,78.7919 86.873,84.85281 v 78.79189 l -28.2842,-20.20305 4.0407,173.74625 18.1827,28.28428 -42.4265,34.34517 -58.5888,-2.0203 -8.0811,60.60914 -42.4265,80.81224 153.5432,-6.06093 z"
+                 style="fill:#ffffff;stroke-width:3.77952766" />
+            </svg>
+            <div class="contact-form">
+                <h1>Contact Me</h1>
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Your Email" />
+                <input type="text" placeholder="Subject" />
+                <textarea placeholder="Your Message"></textarea>
+                <button>Send Message</button>
+            </div>
         </div>
-       </div>
-      </div>
-      
-      <div class="col-md-6">
-       <h3>Coin Collector</h3>
-       <p class="project-caption">Java, RenderScript</p>
-       <div class="row">
-        <div class="col-md-6">
-         <a href="https://play.google.com/store/apps/details?id=com.panpardev.coincollector.coincollector">
-          <img class="img-rounded project-image" src="images/coin_collector.png" />
-         </a>
-        </div>
-        <div class="col-md-6">
-         <p>
-          <b>Description</b> <br/>
-          Coin Collector is a game where you play as a space ship that has to gather coins. Each coin has benefits or consequences depending on the type of coin (indicated by its colour). The game starts by giving you ten seconds of time. For each coin you collect, you will receive or lose points or time. When the timer reaches zero the game has ended and your score is displayed.
-          <br/> <br/>
-          <b>Technical</b> <br/>
-          Coin Collector is built on top of the Android API. It does not use any other libraries to handle graphics rendering. The star texture is generated using a similar method to Space Maze (distribute the dots and use Perlin Noise for the background), but it does this using RenderScript. An advantage of RenderScript is that it uses parallel computation resulting in faster image manipulation.
-         </p>
-        </div>
-       </div>
-      </div>
-      
-     </div>
-     
-     <!--Android Math-->
-     <div class="row">
-     
-      <div class="col-md-6">
-       <h3>Derivative Calculator</h3>
-       <p class="project-caption">Java</p>
-       <div class="row">
-        <div class="col-md-6">
-         <a href="https://play.google.com/store/apps/details?id=com.panpardev.derivativecalculator">
-          <img class="img-rounded project-image" src="images/derivative_calculator.png" />
-         </a>
-        </div>
-        <div class="col-md-6">
-         <p>
-          <b>Description</b> <br/>
-          Derivative Calculator is an application that allows the user to input a mathematical function, then it outputs the derivative. Some additional features include calculating the nth derivative and plugging in a value to see the result of the calculation.
-          <br/> <br/>
-          <b>Technical</b> <br/>
-          Derivative Calculator uses a binary tree. Each node of the tree is either a calculation (plus, minus, times, divide) or a function (power, trigonometric, etc...). A base function of <i>f(x) = x</i> is used as the most simple function. For example: derivative of <i>sin(x)</i> would be evaluated to <i>1 * cos(x)</i> by using the chain rule.
-         </p>
-        </div>
-       </div>
-      </div>
-      
-      <div class="col-md-6">
-       <h3>Polynomial Solver</h3>
-       <p class="project-caption">Java</p>
-       <div class="row">
-        <div class="col-md-6">
-         <a href="https://play.google.com/store/apps/details?id=com.panpardev.polynomialsolver">
-          <img class="img-rounded project-image" src="images/polynomial_solver.png" />
-         </a>
-        </div>
-        <div class="col-md-6">
-         <p>
-          <b>Description</b> <br/>
-          Polynomial Solver is an application that can compute the roots of a given polynomial function.
-          <br/> <br/>
-          <b>Technical</b> <br/>
-          Polynomial Solver uses a combination of newton's method and synthetic division to find roots and reduce the polynomial.
-         </p>
-        </div>
-       </div>
-      </div>
-      
-     </div>
-    
-    </div>
-    
-    <!--Arduino-->
-    
-    <div id="projects-arduino-toggle" class="toggle-bar sub-toggle-bar">
-     <i class="fa fa-plus-square"></i>
-     <p>Arduino</p>
-    </div>
-    
-    <div id="projects-arduino-row" class="row">
-    
-     <div class="col-md-6">
-      <h3>LED Cube Designer</h3>
-      <p class="project-caption">C++, Arduino, <a href="http://irrlicht.sourceforge.net/">Irrlicht</a></p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="https://github.com/proubatsis/LED-Cube-Designer">
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/LED-Cube-Designer/master/screenshot.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-          LED Cube Designer is a desktop application that allows you to create designs and animations to be displayed on an arduino powered LED cube. It currently supports two types of 4x4 cubes. The first type is a standard cube where each LED is on or off. This cube is based off of an <a href="http://www.instructables.com/id/4x4x4-LED-Cube-Arduino/#step0">instructables</a> tutorial. The second type of cube came in a kit with an LED controller and an API, it is an LED cube that can show any colour.
-          <br/> <br/>
-          <b>Technical</b> <br/>
-          This application was built using Irrlicht which is a 3D rendering library. When the user designs the cube they can export the design/animation as Arduino code which can then be uploaded to the Arduino.
-         </p>
-       </div>
-      </div>
-     </div>
-     
-     <div class="col-md-6">
-      <h3>NeoPixel LED Strip Message Board</h3>
-      <p class="project-caption">Arduino, Python</p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="https://github.com/proubatsis/NeoPixel-Strip-Message-Board">
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/NeoPixel-Strip-Message-Board/master/example_pictures/hello.png" />
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/NeoPixel-Strip-Message-Board/master/example_pictures/transition.png" />
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/NeoPixel-Strip-Message-Board/master/example_pictures/world.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-         NeoPixel LED Strip Message Board is a message board built out of rows of LED strips. It can display a message as horizontally scrolling text.
-         <br/> <br/>
-         <b>Technical</b> <br/>
-         A "font" is defined as a series of 0s and 1s in a text file. A python script reads the text file and converts each letter into an array of bytes. Each bit in each byte defines which LEDs should be on or off to display a particular letter. An offset and buffer is used to scroll the text.
-        </p>
-       </div>
-      </div>
-     </div>
-     
-    </div>
-     
-    <!--Web-->
-    <div id="projects-web-toggle" class="toggle-bar sub-toggle-bar">
-     <i class="fa fa-plus-square"></i>
-     <p>Web</p>
-    </div>
-    
-    <div id="projects-web-row" class="row">
-    
-     <div class="col-md-6">
-      <h3>PanPar Development</h3>
-      <p class="project-caption">HTML, JavaScript, CSS, PHP, SQL, <a href="http://getbootstrap.com/">Bootstrap</a></p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="http://www.panpardev.com/">
-         <img class="img-rounded project-image" src="images/panpardev.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-         This is a website that I created to display my android applications. I ended up adding a couple of other projects as well, especially ones that are multi-platform (eg. Android and Web).
-         <br/> <br/>
-         <b>Technical</b> <br/>
-         panpardev.com uses a MySQL database to store the information regarding each application. PHP is used to access and display the information. This allows for me to easily update the page.
-        </p>
-       </div>
-      </div>
-     </div>
-     
-     <div class="col-md-6">
-      <h3>Map Creator / Route Finder</h3>
-      <p class="project-caption">JavaScript, C#, HTML</p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="https://github.com/proubatsis/Map-Route-Finder">
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/Map-Creator/master/screenshot.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-         <u>Route Finder</u> <br/>
-         Route Finder is a web application that allows you to choose two destinations on a map then it displays the route.
-         <br/>
-         <u>Map Creator</u> <br/>
-         Map Creator is a desktop application that allows you to create a map that can be used by Route Finder. You start by loading an image to use as the basis for a map and then add the appropriate start/end points.
-         <br/> <br/>
-         <b>Technical</b> <br/>
-         Map Creator exports a JSON file that contains the appropriate map data. Route Finder loads the JSON data and performs Dijkstra's algorithm on it to find the shortest path between the source and destination map nodes.
-        </p>
-       </div>
-      </div>
-     </div>
-     
-    </div>
-    
-    <!--Desktop-->
-    <div id="projects-desktop-toggle" class="toggle-bar sub-toggle-bar">
-     <i class="fa fa-plus-square"></i>
-     <p>Desktop</p>
-    </div>
-    
-    <div id="projects-desktop-row" class="row">
-    
-     <div class="col-md-6">
-      <h3>Procedural city</h3>
-      <p class="project-caption">C++, Lua, OpenCL, <a href="http://irrlicht.sourceforge.net/">Irrlicht</a></p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="https://github.com/proubatsis/Procedural-City">
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/Procedural-City/master/screenshot_ground_level.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-         This is an application that procedurally generates a city. There are no pre-made assets such as models or textures. They are all generated when the application starts. There are no "practical" uses for this project as is. It can be used as a base for other projects; for example, in the future I plan to make a visual traffic simulation using Procedural City as a basis.
-         <br/> <br/>
-         <b>Technical</b> <br/>
-         Procedural City uses the Irrlicht 3D library to render models. The models are generated by Lua scripts. The thinking behind using Lua was that the buildings and roads could easily be modified in future projects. It also allows for experimentation. The original Implementation of the texture generation was done by using shaders, I changed this to use OpenCL because the shader implementation had a negative effect on the frame rate. Now the textures are generated using OpenCL when the application starts. It uses more memory, but the frame rate is considerably better. A simplified version of the city generation algorithm is: generate road network, generate population density map, place buildings in the road network based on population density.
-        </p>
-       </div>
-      </div>
-     </div>
-     
-     <div class="col-md-6">
-      <h3>Audio Visualizer</h3>
-      <p class="project-caption">C++, <a href="http://www.sfml-dev.org/">SFML</a>, <a href="http://www.fmod.org/">FMOD</a></p>
-      <div class="row">
-       <div class="col-md-6">
-        <a href="https://github.com/proubatsis/Audio-Visualizer">
-         <img class="img-rounded project-image" src="https://raw.githubusercontent.com/proubatsis/Audio-Visualizer/master/screenshots/pie.png" />
-        </a>
-       </div>
-       <div class="col-md-6">
-        <p>
-         <b>Description</b> <br/>
-         Audio Visualizer is an application that visualizes music using a variety of different effects including the classic bar graph and some unique effects as well.
-         <br/> <br/>
-         <b>Technical</b> <br/>
-         Audio Visualizer uses SFML for graphics, and it uses FMOD to load and analyze audio files. I made a simple GUI system based on SFML for the selection form.
-        </p>
-       </div>
-      </div>
-     </div>
-     
-    </div>
-    
-   </div>
-   <!--End of Projects Section-->
-   
-   <!--Programming Languages-->
-   <div id="programming-language-toggle" class="row toggle-bar">
-    <i class="fa fa-plus-square"></i>
-    <p>Programming Languages</p>
-   </div>
-   
-   <div id="programming-language-row" class="row">
-    <div class="col-md-6">
-     <canvas id="programmingChartCanvas">
-      Canvas not supported!
-     </canvas>
-    </div>
-    <div class="col-md-6"></div>
-   </div>
-   
-  </div>
-  
-  <!--Footer-->
-  <div id="footer">
-   Contact: <a href="mailto:proubatsis@panagiotis.ca"> proubatsis@panagiotis.ca </a>
-   <br />
-   <p>Copyright 2016 Panagiotis Roubatsis</p>
-  </div>
-  
- </body>
+        <script>
+            const HOME_PAGE = "homePage";
+            const CONTACT_PAGE = "contactPage";
+            const PAGES = [HOME_PAGE, CONTACT_PAGE];
+            const CONTACT_PAGE_PATTERN = /^\/?\#\/contact\/?$/;
+            let currentPage = HOME_PAGE;
+
+            const updateBody = () => {
+                if (currentPage === CONTACT_PAGE) {
+                    document.body.setAttribute("contact", "");
+                } else {
+                    document.body.removeAttribute("contact");
+                }
+            };
+
+            // Switch to the specified page with an animation.
+            const switchToPage = (fromPageId, toPageId, path) => {
+                history.pushState({}, "Contact Me", path);
+                currentPage = toPageId;
+
+                const fromPage = document.getElementById(fromPageId);
+                const toPage = document.getElementById(toPageId);
+                fromPage.classList.add("change-content-1");
+                toPage.classList.add("change-content-init");
+                setTimeout(() => {
+                    fromPage.style.display = "none";
+                    toPage.style.display = "flex";
+                    fromPage.classList.remove("change-content-1");
+                    setTimeout(() => {
+                        toPage.classList.remove("change-content-init");
+                        toPage.classList.add("change-content-2");
+                        setTimeout(() => {
+                            toPage.classList.remove("change-content-2");
+                            updateBody();
+                        }, 500);
+                    }, 100);
+               }, 500);
+            };
+
+            const contactButton = document.getElementById("contactButton");
+            contactButton.onclick = () => {
+                switchToPage(currentPage, CONTACT_PAGE, "/#/contact");
+            };
+
+            const loadPage = (pageIdToLoad) => {
+                PAGES.forEach((pageId) => {
+                    const page = document.getElementById(pageId);
+                    page.style.display = "none";
+                });
+                const page = document.getElementById(pageIdToLoad);
+                page.style.display = "flex";
+                currentPage = pageIdToLoad;
+                updateBody();
+            };
+
+            // Make sure we display the correct page when the user loads the site
+            window.onload = () => {
+                if (location.hash.match(CONTACT_PAGE_PATTERN)) {
+                    loadPage(CONTACT_PAGE);
+                }
+            };
+            // When the user navigates via browser history, we should switch to the corresponding page.
+            window.onhashchange = () => {
+                if (location.hash.match(CONTACT_PAGE_PATTERN)) {
+                    switchToPage(currentPage, CONTACT_PAGE_PATTERN, "/#/contact");
+                } else {
+                    switchToPage(currentPage, HOME_PAGE, "/#");
+                }
+            }
+        </script>
+    </body>
 </html>
-
