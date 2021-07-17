@@ -27,13 +27,51 @@
                 width: 100%;
                 height: 100%;
                 clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+                position: fixed;
+                top: 0;
+                left: 0;
             }
             #homePage {
                 background: #d41425;
             }
+            #experiencePage {
+                display: none;
+                background: #7bd6f4;
+            }
             #contactPage {
                 display: none;
                 background: #13c297;
+            }
+            #contactButton {
+                padding-right: 8px;
+                border-right: 1px solid rgba(0, 0, 0, 0.25);
+            }
+            .work.experience {
+                padding: 8px;
+                height: 40%;
+            }
+            .work.experience {
+                color: #333;
+                background: #fcfdd9;
+                clip-path: polygon(0% 0%, 0% 90%, 100% 100%, 100% 0%);
+            }
+            .personal-projects.experience {
+                color: #333;
+            }
+            .experience div {
+                margin-top: 32px;
+            }
+            .experience p {
+                font-size: 1.25em;
+                margin: 4px;
+            }
+            .experience a {
+                text-decoration: none;
+                color: #711501;
+                font-weight: bold;
+            }
+            .experience div:nth-last-of-type(-n+2) {
+                display: none;
             }
             #contactBackgroundSvg {
                 position: absolute;
@@ -64,16 +102,17 @@
                 color: #fff;
                 font-weight: bold;
             }
-            .content.change-content-init {
-                clip-path: polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%);
+            .full-work-history-caption {
+                font-size: 0.8em;
+                padding-top: 8px;
+                font-weight: bold;
             }
-            .content.change-content-1 {
+            .full-work-history-caption i {
+                padding-left: 4px;
+            }
+            .content.change-content {
                 transition: 500ms;
                 clip-path: polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%);
-            }
-            .content.change-content-2 {
-                transition: 500ms;
-                clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
             }
             .info {
                 margin: 8px;
@@ -82,28 +121,65 @@
             }
             h1 {
                 font-size: 4em;
+                margin: 4px;
             }
             h2 {
                 font-size: 3em;
+                margin: 4px;
+            }
+            h3 {
+                font-size: 2em;
+                margin: 4px;
             }
             .links {
+                margin: 8px;
                 font-size: 2em;
             }
             .links * {
                 margin-right: 16px;
-                color: #fdfdfd;
+                color: #19bde6;
                 cursor: pointer;
             }
 
             @media only screen and (min-width: 768px) {
+                .experience div:nth-last-of-type(-n+2) {
+                    display: block;
+                }
+                #experiencePage {
+                    flex-direction: row;
+                }
+                .work.experience {
+                    height: unset;
+                }
+                .experience {
+                    width: 50%;
+                }
+                .work.experience {
+                    clip-path: polygon(0% 0%, 0% 100%, 90% 100%, 100% 0%);
+                }
                 .contact-form {
                     height: 540px;
                 }
+                .experience p {
+                    margin: 16px;
+                }
                 h1 {
                     font-size: 8em;
+                    margin: 16px;
                 }
                 h2 {
                     font-size: 4em;
+                    margin: 16px;
+                }
+                h3 {
+                    font-size: 2em;
+                    margin: 16px;
+                }
+                .links {
+                    margin: 16px;
+                }
+                .full-work-history-caption {
+                    display: none;
                 }
             }
 
@@ -138,9 +214,67 @@
                 <h1>Panagiotis Roubatsis</h1>
                 <h2>Software Developer</h2>
                 <div class="links">
+                    <span id="experienceButton"><i class="fas fa-briefcase"></i></span>
+                    <span id="contactButton"><i class="fas fa-envelope"></i></span>
                     <a target="_blank" href="http://www.github.com/proubatsis"><i class="fab fa-github"></i></a>
                     <a target="_blank" href="http://www.linkedin.com/in/panagiotisroubatsis"><i class="fab fa-linkedin"></i></a>
-                    <span id="contactButton"><i class="fas fa-envelope"></i></span>
+                </div>
+            </div>
+        </div>
+        <div id="experiencePage" class="content">
+            <div class="work experience">
+                <h2>Work Experience</h2>
+                <div>
+                    <h3><a href="https://www.leaptools.com/" target="_blank">Leap Tools</a> - Software Developer</h3>
+                    <p>2019 - Present</p>
+                    <p>Full-Stack Web Development, Graphics, and Machine Learning.</p>
+                </div>
+                <p class="full-work-history-caption">Full work history available on <a target="_blank" href="http://www.linkedin.com/in/panagiotisroubatsis">LinkedIn<i class="fab fa-linkedin"></i></a></p>
+                <div>
+                    <h3><a href="https://www.ibm.com/ca-en" target="_blank">IBM Canada</a> - Software Developer Intern</h3>
+                    <p>2018-2019</p>
+                    <p>Java, MicroProfile, and Kubernetes.</p>
+                </div>
+                <div>
+                    <h3>Climax Media - QA Intern</h3>
+                    <p>2016 - 2018</p>
+                    <p>Manual Testing, Selenium, Cucumber, NodeJS, and React.</p>
+                </div>
+            </div>
+            <div class="personal-projects experience">
+                <h2>Personal Projects</h2>
+                <div>
+                    <h3><a href="https://github.com/proubatsis/Procedural-City" target="_blank">Procedural City</a></h3>
+                    <p>
+                        Generate a city without any existing models or textures. The goal of this project was to learn and
+                        apply some procedural generation techniques and how to create renderable assets using only code.
+                    </p>
+                </div>
+                <div>
+                    <h3><a href="https://github.com/proubatsis/Audio-Visualizer" target="_blank">Audio Visualizer</a></h3>
+                    <p>
+                        Visualize your music using a variety of different effects. The goal of this project was to obtain
+                        an insight into how sound can be analyzed with software. This project generated ideas for some other
+                        mini-projects such as the <a href="https://github.com/proubatsis/sound-messenger" target="_blank">sound messenger</a>
+                        which allows two computers to communicate by beeping.
+                    </p>
+                </div>
+                <div>
+                    <h3><a href="https://github.com/proubatsis/kanboard-discord-bot" target="_blank">Kanboard Discord Bot</a></h3>
+                    <p>
+                        Control <a href="https://kanboard.org/" target="_blank">Kanboard</a> using commands in <a href="https://discord.com/" target="_blank">Discord</a>.
+                        The goal of this project was to provide an alternate method of interacting with Kanboard. Kanboard is often
+                        difficult to use on mobile devices, and even on desktop sometimes it's just more convenient to do
+                        common operations through a CLI-type experience.
+                    </p>
+                </div>
+                <div>
+                    <h3><a href="https://github.com/proubatsis/docker-hub-kube-deploy" target="_blank">Docker Hub Kubernetes Deployer</a></h3>
+                    <p>
+                        Deploy docker containers to Kubernetes when images are pushed to <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>.
+                        The goal of this project was to have automated deployments of personal projects to my self-hosted cluster without the overhead or cost of
+                        a full-fledged CI/CD platform.
+                    </p>
                 </div>
             </div>
         </div>
@@ -166,39 +300,46 @@
         </div>
         <script>
             const HOME_PAGE = "homePage";
+            const EXPERIENCE_PAGE = "experiencePage";
             const CONTACT_PAGE = "contactPage";
-            const PAGES = [HOME_PAGE, CONTACT_PAGE];
+            const PAGES = [HOME_PAGE, EXPERIENCE_PAGE, CONTACT_PAGE];
+            const EXPERIENCE_PAGE_PATTERN = /^\/?\#\/experience\/?$/;
             const CONTACT_PAGE_PATTERN = /^\/?\#\/contact\/?$/;
+            const ROUTES = [
+                {"pattern": CONTACT_PAGE_PATTERN, "page": CONTACT_PAGE, "path": "/#/contact"},
+                {"pattern": EXPERIENCE_PAGE_PATTERN, "page": EXPERIENCE_PAGE, "path": "/#/experience"},
+            ];
             let currentPage = HOME_PAGE;
 
             const updateBody = () => {
                 if (currentPage === CONTACT_PAGE) {
                     document.body.setAttribute("contact", "");
-                } else {
+                } else if (document.body.hasAttribute("contact")) {
                     document.body.removeAttribute("contact");
                 }
             };
 
             // Switch to the specified page with an animation.
             const switchToPage = (fromPageId, toPageId, path) => {
-                history.pushState({}, "Contact Me", path);
+                history.pushState({}, "Panagiotis Roubatsis", path);
                 currentPage = toPageId;
 
                 const fromPage = document.getElementById(fromPageId);
                 const toPage = document.getElementById(toPageId);
-                fromPage.classList.add("change-content-1");
-                toPage.classList.add("change-content-init");
+                fromPage.style.display = "flex";
+                toPage.style.display = "flex";
+                fromPage.style.zIndex = "100";
+                toPage.style.zIndex = "50";
+
+                fromPage.classList.add("change-content");
                 setTimeout(() => {
                     fromPage.style.display = "none";
                     toPage.style.display = "flex";
-                    fromPage.classList.remove("change-content-1");
+                    fromPage.style.zIndex = "";
+                    toPage.style.zIndex = "";
+                    fromPage.classList.remove("change-content");
                     setTimeout(() => {
-                        toPage.classList.remove("change-content-init");
-                        toPage.classList.add("change-content-2");
-                        setTimeout(() => {
-                            toPage.classList.remove("change-content-2");
-                            updateBody();
-                        }, 500);
+                        updateBody();
                     }, 100);
                }, 500);
             };
@@ -206,6 +347,10 @@
             const contactButton = document.getElementById("contactButton");
             contactButton.onclick = () => {
                 switchToPage(currentPage, CONTACT_PAGE, "/#/contact");
+            };
+            const experienceButton = document.getElementById("experienceButton");
+            experienceButton.onclick = () => {
+                switchToPage(currentPage, EXPERIENCE_PAGE, "/#/experience");
             };
 
             const loadPage = (pageIdToLoad) => {
@@ -219,20 +364,24 @@
                 updateBody();
             };
 
+            const getRoute = () => ROUTES.find((route) => location.hash.match(route.pattern));
+
             // Make sure we display the correct page when the user loads the site
             window.onload = () => {
-                if (location.hash.match(CONTACT_PAGE_PATTERN)) {
-                    loadPage(CONTACT_PAGE);
+                const route = getRoute();
+                if (route) {
+                    loadPage(route.page);
                 }
             };
             // When the user navigates via browser history, we should switch to the corresponding page.
             window.onhashchange = () => {
-                if (location.hash.match(CONTACT_PAGE_PATTERN)) {
-                    switchToPage(currentPage, CONTACT_PAGE_PATTERN, "/#/contact");
+                const route = getRoute();
+                if (route) {
+                    switchToPage(currentPage, route.page, route.url);
                 } else {
                     switchToPage(currentPage, HOME_PAGE, "/#");
                 }
-            }
+            };
         </script>
     </body>
 </html>
