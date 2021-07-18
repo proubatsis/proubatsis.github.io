@@ -6,6 +6,9 @@ body {
     margin: 0px;
     font-size: 12px;
 }
+button {
+    cursor: pointer;
+}
 body[contact] {
     position: absolute;
     height: 200vh;
@@ -131,6 +134,22 @@ h3 {
     color: #19bde6;
     cursor: pointer;
 }
+#contactConfirmationDialog {
+    position: fixed;
+    top: calc(50% - 128px);
+    left: calc(50% - 37.5vw);
+    width: 75vw;
+    height: 256px;
+    background: #13c297;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #333;
+
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+}
 
 @media only screen and (min-width: 768px) {
     .experience div:nth-last-of-type(-n+2) {
@@ -172,6 +191,12 @@ h3 {
     .full-work-history-caption {
         display: none;
     }
+    #contactConfirmationDialog {
+        top: calc(50% - 160px);
+        left: calc(50% - 20vw);
+        width: 40vw;
+        height: 320px;
+    }
 }
 
 @media only screen and (min-width: 1160px) {
@@ -187,5 +212,38 @@ h3 {
     }
     .info {
         margin: 0px;
+    }
+    #contactConfirmationDialog {
+        top: calc(50% - 160px);
+        left: calc(50% - 15vw);
+        width: 30vw;
+    }
+}
+
+.loading-spinner {
+    display: none;
+}
+.loading-spinner[loading] {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.loading-spinner:after {
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading-spinner 1.2s linear infinite;
+}
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

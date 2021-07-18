@@ -103,7 +103,14 @@
                 <input id="emailContactField" type="email" placeholder="Your Email" />
                 <input id="subjectContactField" type="text" placeholder="Subject" />
                 <textarea id="contentContactField" placeholder="Your Message"></textarea>
-                <button id="sendMessageButton">Send Message</button>
+                <button id="sendMessageButton">
+                    <span>Send Message</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </div>
+            <div style="display: none" id="contactConfirmationDialog">
+                <h3 class="success">Thank you for your message!</h3>
+                <h3 class="failure">We cannot submit the form. Please try again later.</h3>
             </div>
         </div>
         <script type="text/javascript" src="routing.js"></script>
