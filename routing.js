@@ -71,7 +71,15 @@ window.onload = () => {
     if (route) {
         loadPage(route.page);
     }
+
+    // Check if the contact API is available
+    fetch("http://contact-api.panagiotis.io/ping").then((response) => {
+        if (!response.ok) {
+            contactButton.style.display = "none";
+        }
+    });
 };
+
 // When the user navigates via browser history, we should switch to the corresponding page.
 window.onhashchange = () => {
     const route = getRoute();
