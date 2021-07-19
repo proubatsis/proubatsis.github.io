@@ -16,17 +16,9 @@ sendMessageButton.onclick = () => {
         return {...body, [ID_TO_JSON_MAP[id]]: document.getElementById(id).value};
     }, {});
     const validationErrors = validateContactForm(requestBody);
-    const validationErrorsElement = document.getElementById("validationErrors");
-    validationErrorsElement.innerHTML = "";
-
+    clearValidationErrors();
     if (validationErrors.length > 0) {
-        validationErrorsElement.style.display = "";
-        validationErrors.forEach((errorMessage) => {
-            const p = document.createElement("p");
-            p.innerText = errorMessage;
-            validationErrorsElement.appendChild(p);
-        });
-        showDialog("validation");
+        showValidationErrors(validationErrors);
         return;
     }
 
@@ -45,6 +37,11 @@ sendMessageButton.onclick = () => {
         if (response.ok) {
             clearForm();
             showDialog("success");
+        } else if (response.status === 422) {
+            showDialog("validation");
+            response.json().then((json) => {
+                showValidationErrors(json.detail.map(detail => `${detail.loc[detail.loc.length - 1]}: ${detail.msg}`));
+            });
         } else {
             showDialog("failure");
         }
@@ -95,12 +92,32 @@ const hideDialog = () => {
     dialog.style.display = "none";
 };
 
+const clearValidationErrors = () => {
+    const validationErrorsElement = document.getElementById("validationErrors");
+    validationErrorsElement.innerHTML = "";
+};
+
+const showValidationErrors = (validationErrors) => {
+    const validationErrorsElement = document.getElementById("validationErrors");
+    validationErrorsElement.style.display = "";
+    validationErrors.forEach((errorMessage) => {
+        const p = document.createElement("p");
+        p.innerText = errorMessage;
+        validationErrorsElement.appendChild(p);
+    });
+    showDialog("validation");
+};
+
 const validateContactForm = (requestBody) => {
     const validationErrors = [];
     validateField(requestBody, validationErrors, "name", MAX_NAME_LENGTH);
     validateField(requestBody, validationErrors, "subject", MAX_SUBJECT_LENGTH);
     validateField(requestBody, validationErrors, "email");
     validateField(requestBody, validationErrors, "content", MAX_CONTENT_LENGTH, false);
+    if (!/\S+@\S+\.\S+/.test(requestBody.email)) {
+        // Verify that email format is roughly correct, it'll be more thoroughly validated by the server.
+        validationErrors.push("Invalid email!");
+    }
     return validationErrors;
 };
 
