@@ -1,0 +1,259 @@
+body {
+    font-family: 'Bona Nova', serif;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    font-size: 12px;
+}
+button {
+    cursor: pointer;
+}
+body[contact] {
+    position: absolute;
+    height: 200vh;
+    overflow-x: hidden;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    background: #d41425;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#homePage {
+    background: #d41425;
+}
+#experiencePage {
+    display: none;
+    background: #7bd6f4;
+}
+#contactPage {
+    display: none;
+    background: #13c297;
+}
+#contactButton {
+    padding-right: 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+.work.experience {
+    padding: 8px;
+    height: 40%;
+}
+.work.experience {
+    color: #333;
+    background: #fcfdd9;
+    clip-path: polygon(0% 0%, 0% 90%, 100% 100%, 100% 0%);
+}
+.personal-projects.experience {
+    color: #333;
+}
+.experience div {
+    margin-top: 32px;
+}
+.experience p {
+    font-size: 1.25em;
+    margin: 4px;
+}
+.experience a {
+    text-decoration: none;
+    color: #711501;
+    font-weight: bold;
+}
+.experience div:nth-last-of-type(-n+2) {
+    display: none;
+}
+#contactBackgroundSvg {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 450px;
+    position: absolute;
+    top: 192px;
+    left: 16px;
+}
+.contact-form textarea {
+    height: 128px;
+    border: 1px solid #13c297;
+    margin-top: 4px;
+}
+.contact-form input {
+    height: 32px;
+    border: 1px solid #13c297;
+    margin-top: 4px;
+}
+.contact-form button {
+    height: 48px;
+    background: #13c297;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 4px;
+}
+.full-work-history-caption {
+    font-size: 0.8em;
+    padding-top: 8px;
+    font-weight: bold;
+}
+.full-work-history-caption i {
+    padding-left: 4px;
+}
+.content.change-content {
+    transition: 500ms;
+    clip-path: polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%);
+}
+.info {
+    margin: 8px;
+    color: #fdfdfd;
+    align-self: center;
+}
+h1 {
+    font-size: 4em;
+    margin: 4px;
+}
+h2 {
+    font-size: 3em;
+    margin: 4px;
+}
+h3 {
+    font-size: 2em;
+    margin: 4px;
+}
+.links {
+    margin: 8px;
+    font-size: 2em;
+}
+.links * {
+    margin-right: 16px;
+    color: #19bde6;
+    cursor: pointer;
+}
+#contactConfirmationDialog {
+    position: fixed;
+    top: calc(50% - 128px);
+    left: calc(50% - 37.5vw);
+    width: 75vw;
+    height: 256px;
+    background: #13c297;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #333;
+
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+}
+#validationErrors {
+    color: #d41425;
+    height: 120px;
+}
+#validationErrors p {
+    margin: 2px;
+}
+
+@media only screen and (min-width: 768px) {
+    .experience div:nth-last-of-type(-n+2) {
+        display: block;
+    }
+    #experiencePage {
+        flex-direction: row;
+    }
+    .work.experience {
+        height: unset;
+    }
+    .experience {
+        width: 50%;
+    }
+    .work.experience {
+        clip-path: polygon(0% 0%, 0% 100%, 90% 100%, 100% 0%);
+    }
+    .contact-form {
+        height: 600px;
+    }
+    .experience p {
+        margin: 16px;
+    }
+    h1 {
+        font-size: 8em;
+        margin: 16px;
+    }
+    h2 {
+        font-size: 4em;
+        margin: 16px;
+    }
+    h3 {
+        font-size: 2em;
+        margin: 16px;
+    }
+    .links {
+        margin: 16px;
+    }
+    .full-work-history-caption {
+        display: none;
+    }
+    #contactConfirmationDialog {
+        top: calc(50% - 160px);
+        left: calc(50% - 20vw);
+        width: 40vw;
+        height: 320px;
+    }
+}
+
+@media only screen and (min-width: 1160px) {
+    body[contact] {
+        position: fixed;
+        height: 100vh;
+    }
+    .contact-form {
+        position: absolute;
+        left: unset;
+        top: 128px;
+        right: 600px;
+    }
+    .info {
+        margin: 0px;
+    }
+    #contactConfirmationDialog {
+        top: calc(50% - 160px);
+        left: calc(50% - 15vw);
+        width: 30vw;
+    }
+}
+
+.loading-spinner {
+    display: none;
+}
+.loading-spinner[loading] {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.loading-spinner:after {
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading-spinner 1.2s linear infinite;
+}
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
