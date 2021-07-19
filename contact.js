@@ -1,4 +1,8 @@
-const DIALOG_DURATION = 3000;
+const MAX_NAME_LENGTH = 128
+const MAX_SUBJECT_LENGTH = 255;
+const MAX_CONTENT_LENGTH = 10000;
+
+const DIALOG_DURATION = 2000;
 const ID_TO_JSON_MAP = {
     "nameContactField": "name",
     "emailContactField": "email",
@@ -8,10 +12,25 @@ const ID_TO_JSON_MAP = {
 
 const sendMessageButton = document.getElementById("sendMessageButton");
 sendMessageButton.onclick = () => {
-    showLoadingSpinner();
     const requestBody = Object.keys(ID_TO_JSON_MAP).reduce((body, id) => {
         return {...body, [ID_TO_JSON_MAP[id]]: document.getElementById(id).value};
     }, {});
+    const validationErrors = validateContactForm(requestBody);
+    const validationErrorsElement = document.getElementById("validationErrors");
+    validationErrorsElement.innerHTML = "";
+
+    if (validationErrors.length > 0) {
+        validationErrorsElement.style.display = "";
+        validationErrors.forEach((errorMessage) => {
+            const p = document.createElement("p");
+            p.innerText = errorMessage;
+            validationErrorsElement.appendChild(p);
+        });
+        showDialog("validation");
+        return;
+    }
+
+    showLoadingSpinner();
     fetch(
         "http://contact-api.panagiotis.io/message",
         {
@@ -26,10 +45,8 @@ sendMessageButton.onclick = () => {
         if (response.ok) {
             clearForm();
             showDialog("success");
-            setTimeout(hideDialog, DIALOG_DURATION);
         } else {
             showDialog("failure");
-            setTimeout(hideDialog, DIALOG_DURATION);
         }
     });
 };
@@ -70,9 +87,28 @@ const showDialog = (classToDisplay) => {
         }
     }
     dialog.style.display = "";
+    setTimeout(hideDialog, DIALOG_DURATION);
 };
 
 const hideDialog = () => {
     const dialog = document.getElementById("contactConfirmationDialog");
     dialog.style.display = "none";
+};
+
+const validateContactForm = (requestBody) => {
+    const validationErrors = [];
+    validateField(requestBody, validationErrors, "name", MAX_NAME_LENGTH);
+    validateField(requestBody, validationErrors, "subject", MAX_SUBJECT_LENGTH);
+    validateField(requestBody, validationErrors, "email");
+    validateField(requestBody, validationErrors, "content", MAX_CONTENT_LENGTH, false);
+    return validationErrors;
+};
+
+const validateField = (requestBody, validationErrors, fieldName, maxLength=0, shouldTrimWhitespace=true) => {
+    const value = shouldTrimWhitespace ? requestBody[fieldName].trim() : requestBody[fieldName];
+    if (maxLength > 0 && value.length > maxLength) {
+        validationErrors.push(`Length of ${fieldName} is too long: ${value.length} > ${maxLength}`);
+    } else if (value.length === 0) {
+        validationErrors.push(`${fieldName} must not be left blank!`);
+    }
 };
