@@ -113,6 +113,7 @@ const showValidationErrors = (validationErrors) => {
     showDialog("validation");
     window.eventLogClient.sendEvent("VALIDATE_CONTACT_ME_FAILED", {
         validationErrors: validationErrors.join(", "),
+        numberOfFailures: validationErrors.length,
     });
 };
 
