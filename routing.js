@@ -64,11 +64,6 @@ const loadPage = (pageIdToLoad) => {
     page.style.display = "flex";
     currentPage = pageIdToLoad;
     updateBody();
-    window.eventLogClient.initialize().then(() => {
-        window.eventLogClient.sendEvent("LOAD_PAGE", {
-            pageId: page,
-        });
-    });
 };
 
 const getRoute = () => ROUTES.find((route) => location.hash.match(route.pattern));
@@ -78,6 +73,17 @@ window.onload = () => {
     const route = getRoute();
     if (route) {
         loadPage(route.page);
+        window.eventLogClient.initialize().then(() => {
+            window.eventLogClient.sendEvent("LOAD_PAGE", {
+                pageId: route.page,
+            });
+        });
+    } else {
+        window.eventLogClient.initialize().then(() => {
+            window.eventLogClient.sendEvent("LOAD_PAGE", {
+                pageId: HOME_PAGE,
+            });
+        });
     }
 
     // Check if the contact API is available
