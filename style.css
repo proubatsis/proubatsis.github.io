@@ -25,6 +25,9 @@ body[contact] {
     top: 0;
     left: 0;
 }
+body[contact] .content {
+    position: absolute;
+}
 #homePage {
     background: #d41425;
 }
