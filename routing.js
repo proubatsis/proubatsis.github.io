@@ -64,8 +64,10 @@ const loadPage = (pageIdToLoad) => {
     page.style.display = "flex";
     currentPage = pageIdToLoad;
     updateBody();
-    window.eventLogClient.sendEvent("LOAD_PAGE", {
-        pageId: page,
+    window.eventLogClient.initialize().then(() => {
+        window.eventLogClient.sendEvent("LOAD_PAGE", {
+            pageId: page,
+        });
     });
 };
 
@@ -84,7 +86,6 @@ window.onload = () => {
             contactButton.style.display = "none";
         }
     });
-    window.eventLogClient.initialize();
 };
 
 // When the user navigates via browser history, we should switch to the corresponding page.
