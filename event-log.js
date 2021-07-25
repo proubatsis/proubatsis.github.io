@@ -15,6 +15,7 @@ class EventLogApiClient {
                 "body": JSON.stringify({
                     "app": "8034a2f3-61bc-42ac-a15d-cd2d3b8a8120",
                 }),
+                credentials: "include",
             },
         )
         .then(response => response.json())
@@ -36,6 +37,7 @@ class EventLogApiClient {
                     eventType,
                     data,
                 }),
+                credentials: "include",
             },
         );
     }
