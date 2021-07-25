@@ -39,6 +39,9 @@ const switchToPage = (fromPageId, toPageId, path) => {
         fromPage.classList.remove("change-content");
         setTimeout(() => {
             updateBody();
+            window.eventLogClient.sendEvent("SWITCH_TO_PAGE", {
+                pageId: toPageId,
+            });
         }, 100);
     }, 500);
 };
@@ -61,6 +64,9 @@ const loadPage = (pageIdToLoad) => {
     page.style.display = "flex";
     currentPage = pageIdToLoad;
     updateBody();
+    window.eventLogClient.sendEvent("LOAD_PAGE", {
+        pageId: page,
+    });
 };
 
 const getRoute = () => ROUTES.find((route) => location.hash.match(route.pattern));
@@ -78,6 +84,7 @@ window.onload = () => {
             contactButton.style.display = "none";
         }
     });
+    window.eventLogClient.initialize();
 };
 
 // When the user navigates via browser history, we should switch to the corresponding page.

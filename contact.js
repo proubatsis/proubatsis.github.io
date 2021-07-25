@@ -37,6 +37,11 @@ sendMessageButton.onclick = () => {
         if (response.ok) {
             clearForm();
             showDialog("success");
+            window.eventLogClient.sendEvent("SEND_CONTACT_ME_MESSAGE", {
+                name: requestBody.name,
+                email: requestBody.email,
+                subject: requestBody.subject,
+            });
         } else if (response.status === 422) {
             showDialog("validation");
             response.json().then((json) => {
@@ -106,6 +111,9 @@ const showValidationErrors = (validationErrors) => {
         validationErrorsElement.appendChild(p);
     });
     showDialog("validation");
+    window.eventLogClient.sendEvent("VALIDATE_CONTACT_ME_FAILED", {
+        validationErrors: validationErrors.join(", "),
+    });
 };
 
 const validateContactForm = (requestBody) => {
