@@ -70,21 +70,22 @@ const getRoute = () => ROUTES.find((route) => location.hash.match(route.pattern)
 
 // Make sure we display the correct page when the user loads the site
 window.onload = () => {
+    // Initialize appropriate page
     const route = getRoute();
+    let pageId = HOME_PAGE;
     if (route) {
         loadPage(route.page);
-        window.eventLogClient.initialize().then(() => {
-            window.eventLogClient.sendEvent("LOAD_PAGE", {
-                pageId: route.page,
-            });
-        });
-    } else {
-        window.eventLogClient.initialize().then(() => {
-            window.eventLogClient.sendEvent("LOAD_PAGE", {
-                pageId: HOME_PAGE,
-            });
-        });
+        pageId = route.page;
     }
+
+    // Register load page event
+    const loadPageEvent = { pageId };
+    if (document.referrer) {
+        loadPageEvent.referrer = document.referrer;
+    }
+    window.eventLogClient.initialize().then(() => {
+        window.eventLogClient.sendEvent("LOAD_PAGE", loadPageEvent);
+    });
 
     // Check if the contact API is available
     fetch("http://contact-api.panagiotis.io/ping").then((response) => {
