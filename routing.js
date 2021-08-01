@@ -83,9 +83,7 @@ window.onload = () => {
     if (document.referrer) {
         loadPageEvent.referrer = document.referrer;
     }
-    window.eventLogClient.initialize().then(() => {
-        window.eventLogClient.sendEvent("LOAD_PAGE", loadPageEvent);
-    });
+    window.eventLogClient.initialize("LOAD_PAGE", loadPageEvent);
 
     // Check if the contact API is available
     fetch("http://contact-api.panagiotis.io/ping").then((response) => {

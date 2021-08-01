@@ -4,8 +4,8 @@ class EventLogApiClient {
         this.clientInfoId = "";
     }
 
-    initialize() {
-        return fetch(
+    initialize(initialEventType, initialEventData) {
+        fetch(
             `${EVENT_LOG_API_URL}/client_info/`,
             {
                 "method": "POST",
@@ -14,6 +14,10 @@ class EventLogApiClient {
                 },
                 "body": JSON.stringify({
                     "app": "8034a2f3-61bc-42ac-a15d-cd2d3b8a8120",
+                    initialEvent: {
+                        eventType: initialEventType,
+                        data: initialEventData,
+                    },
                 }),
                 credentials: "include",
             },
