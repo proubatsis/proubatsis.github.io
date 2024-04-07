@@ -24,7 +24,7 @@ sendMessageButton.onclick = () => {
 
     showLoadingSpinner();
     fetch(
-        "http://contact-api.panagiotis.io/message",
+        "https://contact-api.panagiotis.io/message",
         {
             method: "POST",
             headers: {
