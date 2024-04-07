@@ -86,7 +86,7 @@ window.onload = () => {
     window.eventLogClient.initialize("LOAD_PAGE", loadPageEvent);
 
     // Check if the contact API is available
-    fetch("http://contact-api.panagiotis.io/ping").then((response) => {
+    fetch("https://contact-api.panagiotis.io/ping").then((response) => {
         if (!response.ok) {
             contactButton.style.display = "none";
         }
